@@ -104,16 +104,16 @@ export const Editor = ({ setMessages }: any) => {
       />
       <div className="h-12 flex-shrink-0 flex items-center justify-end px-8 space-x-4">
         <button
-          className="bg-white text-blue-300 border-2 px-3 py-1 hover:bg-gray-200"
+          className="bg-white text-blue-500 border-2 px-3 py-1 hover:bg-gray-200 hover:text-blue-300 transition duration-200"
           onClick={handleClear}
         >
-          clear
+          Clear Messages
         </button>
         <button
-          className="bg-white text-blue-300 border-2 px-3 py-1 hover:bg-gray-200"
+          className="bg-white text-blue-500 border-2 px-3 py-1 hover:bg-gray-200 hover:text-blue-300 transition duration-200"
           onClick={handleSend}
         >
-          send
+          Send
         </button>
       </div>
     </div>
