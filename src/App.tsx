@@ -2,7 +2,7 @@ import React from "react";
 import { useMemo, useState } from "react";
 import { Editor } from "./Editor";
 import { MessageList } from "./MessageList";
-import "./styles.less";
+import "./styles.css";
 
 export default function App() {
   const [messages, setMessages] = useState([]);

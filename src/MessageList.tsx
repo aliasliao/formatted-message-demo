@@ -17,7 +17,7 @@ export const MessageList = ({ messages }: any) => (
   <div className="flex-grow flex overflow-hidden p-4">
     <div className="flex-grow flex-shrink overflow-auto">
       <div className="flex flex-col space-y-4 divide-y divide-gray-200">
-        {messages.map((message) => (
+        {messages.map((message: any) => (
           <MessageListItem key={message.id} message={message} />
         ))}
       </div>

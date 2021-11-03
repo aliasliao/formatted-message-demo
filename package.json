@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "src/index.tsx",
   "dependencies": {
     "@tiptap/core": "2.0.0-beta.130",
     "@tiptap/extension-bold": "2.0.0-beta.21",
@@ -18,13 +18,13 @@
     "@tiptap/react": "2.0.0-beta.87",
     "clsx": "1.1.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-scripts": "4.0.0"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
     "@types/react": "17.0.33",
     "@types/react-dom": "17.0.10",
+    "react-scripts": "4.0.3",
     "typescript": "4.1.3"
   },
   "scripts": {

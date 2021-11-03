@@ -27,12 +27,11 @@ body {
   z-index: -1;
 }
 
-.ProseMirror,
-.message {
-  ol,
-  ul {
-    list-style-type: revert;
-    margin: revert;
-    padding: revert;
-  }
+.ProseMirror ol,
+.ProseMirror ul,
+.message ol,
+.message ul {
+  list-style-type: revert;
+  margin: revert;
+  padding: revert;
 }
