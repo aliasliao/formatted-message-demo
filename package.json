@@ -1,6 +1,7 @@
 {
   "name": "formatted-message",
   "version": "1.0.0",
+  "packageManager": "yarn@3.0.2",
   "description": "",
   "license": "MIT",
   "keywords": [],
