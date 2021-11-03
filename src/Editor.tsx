@@ -63,6 +63,7 @@ export const Editor = ({ setMessages }: any) => {
     ],
     content:
       "this is <strong>bold</strong>, this is <em>italic</em>, this is <strong><em>bold italic</em></strong></p><ul><li><p>bullet list one</p></li><li><p>bullet list two</p></li></ul><ol><li><p>ordered list one</p></li><li><p>ordered list two</p></li></ol>",
+    autofocus: "end",
     editorProps: {
       attributes: {
         class: "flex-grow overflow-auto outline-none"
