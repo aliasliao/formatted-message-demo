@@ -1,5 +1,5 @@
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -10,3 +10,4 @@ node_modules
 .idea
 build
 .DS_Store
+src/react-app-env.d.ts
