@@ -4,13 +4,26 @@
   "dependencies": {
     "tiptap": "0.0.1"
   },
-  "devDependencies": {
-    "react-scripts": "4.0.3"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "rimraf build && cross-env NODE_ENV=production webpack"
+  },
+  "devDependencies": {
+    "@types/webpack": "^5.28.0",
+    "autoprefixer": "^10.4.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.3.11",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.0",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^2.2.19",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.62.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
   }
 }
