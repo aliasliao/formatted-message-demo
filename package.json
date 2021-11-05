@@ -23,7 +23,8 @@
     "typescript": "^4.4.4"
   },
   "scripts": {
-    "start": "core:start"
+    "start": "yarn workspace core start",
+    "build": "yarn workspace core build"
   },
   "browserslist": [
     ">0.2%",
