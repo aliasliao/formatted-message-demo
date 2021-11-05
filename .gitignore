@@ -10,4 +10,4 @@ node_modules
 .idea
 build
 .DS_Store
-src/react-app-env.d.ts
+**/react-app-env.d.ts

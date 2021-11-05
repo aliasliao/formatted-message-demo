@@ -1,7 +1,7 @@
 import React from "react";
 import { useMemo, useState } from "react";
-import { Editor } from "./Editor";
-import { MessageList } from "./MessageList";
+import { Editor } from "tiptap/Editor";
+import { MessageList } from "tiptap/MessageList";
 import "./styles.css";
 
 export default function App() {

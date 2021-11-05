@@ -1,0 +1,13 @@
+{
+  "name": "core",
+  "version": "0.0.1",
+  "dependencies": {
+    "tiptap": "0.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
