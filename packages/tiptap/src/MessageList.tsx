@@ -1,17 +1,16 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react'
 
 const MessageListItem = ({ message: { id, text, html, json } }: any) => {
-  const element = useRef<HTMLDivElement>(null);
+  const element = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    element.current?.scrollIntoView?.();
-  }, []);
+    element.current?.scrollIntoView?.()
+  }, [])
   return (
     <div key={id} className="message pt-4" ref={element}>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
-  );
-};
+  )
+}
 
 export const MessageList = ({ messages }: any) => (
   <div className="flex-grow flex overflow-hidden p-4">
@@ -23,4 +22,4 @@ export const MessageList = ({ messages }: any) => (
       </div>
     </div>
   </div>
-);
+)
