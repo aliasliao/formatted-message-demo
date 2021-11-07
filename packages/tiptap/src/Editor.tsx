@@ -9,6 +9,7 @@ import Text from '@tiptap/extension-text'
 import { Editor as TEditor, EditorContent, useEditor } from '@tiptap/react'
 import clsx from 'clsx'
 import React, { useState } from 'react'
+import ReactJSON from 'react-json-view'
 
 const getId = () => Math.random().toString(36).substring(2)
 
@@ -121,23 +122,40 @@ export const Editor = ({ setMessages }: any) => {
       className="flex flex-col flex-shrink-0 divide-y divide-gray-300"
       style={{ height: 360 }}
     >
-      <Toolbar editor={editor} />
-      {tab === Tab.EDITOR && (
-        <EditorContent
-          className="flex flex-grow overflow-hidden px-4 py-2"
-          editor={editor}
-        />
-      )}
-      {[Tab.TEXT, Tab.JSON, Tab.HTML].map((t) => (
-        t === tab && (
-          <code
-            key={t}
-            className="flex flex-grow px-4 py-2 whitespace-pre overflow-auto"
-          >
-            {(content as any)?.[t.toLowerCase()]}
-          </code>
-        )
-      ))}
+      <>
+        {tab === Tab.EDITOR && (
+          <>
+            <Toolbar editor={editor} />
+            <EditorContent
+              className="flex flex-grow overflow-hidden px-4 py-2"
+              editor={editor}
+            />
+          </>
+        )}
+        {[Tab.TEXT, Tab.HTML].map((t) => (
+          t === tab && (
+            <code
+              key={t}
+              className="flex flex-grow px-4 py-2 whitespace-pre overflow-auto"
+            >
+              {(content as any)?.[t.toLowerCase()]}
+            </code>
+          )
+        ))}
+        {tab === Tab.JSON && (
+          <div key={tab} className="flex flex-grow px-4 py-2 overflow-auto">
+            <ReactJSON
+              src={JSON.parse(content?.json || '{}')}
+              collapsed={1}
+              indentWidth={2}
+              enableClipboard={false}
+              displayDataTypes={false}
+              displayObjectSize={false}
+              quotesOnKeys={false}
+            />
+          </div>
+        )}
+      </>
       <div className="h-12 flex-shrink-0 flex items-center justify-end px-8 space-x-4">
         <div className="space-x-1">
           {[Tab.EDITOR, Tab.TEXT, Tab.JSON, Tab.HTML].map((t) => (
