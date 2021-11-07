@@ -1,6 +1,7 @@
 .ql-editor {
     flex-grow: 1;
     outline: none;
+    overflow: auto;
 }
 
 .ql-editor ol,

@@ -56,9 +56,6 @@ export const Editor = ({ setMessages }: { setMessages: React.Dispatch<React.SetS
   const [tab, setTab] = useState<Tab>(Tab.EDITOR)
 
   const handleSend = () => {
-    if (!editor) {
-      return
-    }
     setMessages((messages) => [
       ...messages, {
         id: Math.random().toString(36).substring(2),
@@ -67,9 +64,7 @@ export const Editor = ({ setMessages }: { setMessages: React.Dispatch<React.SetS
     ])
   }
 
-  const handleClear = () => {
-    setMessages([])
-  }
+  const handleClear = () => setMessages([])
 
   if (!editor) {
     return null

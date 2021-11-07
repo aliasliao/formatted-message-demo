@@ -7,7 +7,7 @@ const MessageListItem = ({ message: { id, text, html, json } }: { message: Messa
   }, [])
   return (
     <div key={id} className="message pt-4" ref={element}>
-      {text}
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   )
 }
