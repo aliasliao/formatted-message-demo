@@ -1,0 +1,13 @@
+.ql-editor {
+    flex-grow: 1;
+    outline: none;
+}
+
+.ql-editor ol,
+.ql-editor ul,
+.message ol,
+.message ul {
+    list-style-type: revert;
+    margin: revert;
+    padding: revert;
+}

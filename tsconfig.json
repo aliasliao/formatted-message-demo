@@ -21,6 +21,9 @@
     "paths": {
       "tiptap/*": [
         "packages/tiptap/src/*"
+      ],
+      "quilljs/*": [
+        "packages/quilljs/src/*"
       ]
     }
   },

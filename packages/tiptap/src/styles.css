@@ -1,0 +1,8 @@
+.ProseMirror ol,
+.ProseMirror ul,
+.message ol,
+.message ul {
+    list-style-type: revert;
+    margin: revert;
+    padding: revert;
+}

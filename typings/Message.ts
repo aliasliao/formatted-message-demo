@@ -1,6 +1,6 @@
 interface Message {
   id: string,
   text: string,
-  json: string,
+  json: any,
   html: string,
 }

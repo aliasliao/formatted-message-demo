@@ -6,55 +6,12 @@ import ListItem from '@tiptap/extension-list-item'
 import OrderedList from '@tiptap/extension-ordered-list'
 import Paragraph from '@tiptap/extension-paragraph'
 import Text from '@tiptap/extension-text'
-import { Editor as TEditor, EditorContent, useEditor } from '@tiptap/react'
+import { EditorContent, useEditor } from '@tiptap/react'
 import clsx from 'clsx'
 import React, { useState } from 'react'
 import ReactJSON from 'react-json-view'
-
-const getId = () => Math.random().toString(36).substring(2)
-
-const Toolbar = ({ editor }: { editor: TEditor }) => (
-  <div className="h-8 flex flex-shrink-0 items-center px-4 space-x-4">
-    <button
-      onClick={() => editor.chain().focus().toggleBold().run()}
-      className={clsx('hover:text-blue-400 transition duration-200', {
-        'text-blue-400': editor.isActive('bold'),
-      })}
-    >
-      Bold
-    </button>
-    <button
-      onClick={() => editor.chain().focus().toggleItalic().run()}
-      className={clsx('hover:text-blue-400 transition duration-200', {
-        'text-blue-400': editor.isActive('italic'),
-      })}
-    >
-      Italic
-    </button>
-    <button
-      onClick={() => editor.chain().focus().toggleBulletList().run()}
-      className={clsx('hover:text-blue-400 transition duration-200', {
-        'text-blue-400': editor.isActive('bulletList'),
-      })}
-    >
-      BulletList
-    </button>
-    <button
-      onClick={() => editor.chain().focus().toggleOrderedList().run()}
-      className={clsx('hover:text-blue-400 transition duration-200', {
-        'text-blue-400': editor.isActive('orderedList'),
-      })}
-    >
-      OrderedList
-    </button>
-    <button
-      onClick={() => editor.chain().focus().clearNodes().unsetAllMarks().run()}
-      className="hover:text-blue-400 transition duration-200"
-    >
-      ClearFormat
-    </button>
-  </div>
-)
+import 'tiptap/styles.css'
+import { Toolbar } from 'tiptap/Toolbar'
 
 enum Tab {
   EDITOR = 'EDITOR',
@@ -63,7 +20,7 @@ enum Tab {
   HTML = 'HTML',
 }
 
-export const Editor = ({ setMessages }: any) => {
+export const Editor = ({ setMessages }: { setMessages: React.Dispatch<React.SetStateAction<Message[]>> }) => {
   const editor = useEditor({
     extensions: [
       Document,
@@ -85,27 +42,27 @@ export const Editor = ({ setMessages }: any) => {
     },
     onCreate: ({ editor }) => setContent({
       html: editor.getHTML(),
-      json: JSON.stringify(editor.getJSON(), null, 2),
+      json: editor.getJSON(),
       text: editor.getText(),
     }),
     onUpdate: ({ editor }) => setContent({
       html: editor.getHTML(),
-      json: JSON.stringify(editor.getJSON(), null, 2),
+      json: editor.getJSON(),
       text: editor.getText(),
     }),
   }, [])
 
-  const [content, setContent] = useState<{ html: string, json: string, text: string }>()
+  const [content, setContent] = useState<{ html: string, json: any, text: string }>()
   const [tab, setTab] = useState<Tab>(Tab.EDITOR)
 
   const handleSend = () => {
     if (!editor) {
       return
     }
-    setMessages((messages: any) => [
+    setMessages((messages) => [
       ...messages, {
-        id: getId(),
-        ...content,
+        id: Math.random().toString(36).substring(2),
+        ...content!,
       },
     ])
   }
@@ -145,7 +102,7 @@ export const Editor = ({ setMessages }: any) => {
         {tab === Tab.JSON && (
           <div key={tab} className="flex flex-grow px-4 py-2 overflow-auto">
             <ReactJSON
-              src={JSON.parse(content?.json || '{}')}
+              src={content?.json}
               collapsed={1}
               indentWidth={2}
               enableClipboard={false}

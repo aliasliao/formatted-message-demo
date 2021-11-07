@@ -58,6 +58,7 @@ module.exports = {
     modules: [resolve(__dirname, 'src'), 'node_modules'],
     alias: {
       'tiptap': resolve(__dirname, '../tiptap/src'),
+      'quilljs': resolve(__dirname, '../quilljs/src'),
     },
   },
   devtool: isProd ? false : 'inline-source-map',
